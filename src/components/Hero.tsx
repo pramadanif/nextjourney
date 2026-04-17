@@ -5,8 +5,8 @@ export default function Hero() {
     <section className="hero-wrapper">
       <div className="hero-img-wrapper" style={{ position: 'relative', width: '100%', height: '100%' }}>
         <Image 
-          src="/images/hero-bg.png" 
-          alt="NextJourney Collection" 
+          src="https://images.unsplash.com/photo-1503431194692-82dd03d18093?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+          alt="NextJourney Street Collection" 
           fill
           sizes="(max-width: 768px) 100vw, 100vw"
           priority

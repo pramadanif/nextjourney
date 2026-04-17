@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react';
 import Image from 'next/image';
 
 export interface Product {
@@ -9,7 +12,11 @@ export interface Product {
   delay?: number;
 }
 
+const SIZES = ['S', 'M', 'L', 'XL'];
+
 export default function ProductCard({ title, price, image, status, delay = 0 }: Product) {
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
   return (
     <div className="product-card" style={{ animationDelay: `${delay}s` }}>
       <div className="product-img-wrapper">
@@ -23,6 +30,23 @@ export default function ProductCard({ title, price, image, status, delay = 0 }: 
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           className="product-img"
         />
+
+        {status !== 'sold_out' && (
+          <div className="size-selector">
+            {SIZES.map(size => (
+              <button 
+                key={size} 
+                className={`size-btn ${selectedSize === size ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedSize(size);
+                }}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        )}
 
         <button className="product-add-btn">
           {status === 'sold_out' ? 'Notify Me' : 'Add to Bag'}
