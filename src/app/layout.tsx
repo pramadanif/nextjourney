@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SNS-B | Premium Streetwear",
-  description: "Exclusive distro fashion, New Arrival & Raya Collection.",
+  title: "NEXTJOURNEY | World-Class E-Commerce",
+  description: "Premium streetwear, New Arrival & Collections.",
 };
 
 export default function RootLayout({

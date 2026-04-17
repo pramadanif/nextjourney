@@ -1,7 +1,6 @@
-import styles from './ProductGrid.module.css';
 import ProductCard, { Product } from './ProductCard';
 
-const MOCK_PRODUCTS: Product[] = [
+export const MOCK_PRODUCTS: Product[] = [
   {
     id: "1",
     title: "BENZ CARDHOLDER BLACK",
@@ -35,17 +34,17 @@ const MOCK_PRODUCTS: Product[] = [
 
 export default function ProductGrid() {
   return (
-    <section className={`container ${styles.gridContainer}`}>
-      <div className={styles.gridHeader}>
-        <h2 className={styles.title}>Products</h2>
-        <div className={styles.filters}>
-          <div className={styles.filterItem}>
+    <section className="container section-padding">
+      <div className="shop-header">
+        <h2 className="shop-title">Featured Products</h2>
+        <div style={{ display: 'flex', gap: '20px', fontSize: '13px', color: 'var(--text-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
             Availability 
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
               <path d="M1 1L5 5L9 1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <div className={styles.filterItem}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
             Price
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
               <path d="M1 1L5 5L9 1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
@@ -54,7 +53,7 @@ export default function ProductGrid() {
         </div>
       </div>
 
-      <div className={styles.grid}>
+      <div className="product-grid">
         {MOCK_PRODUCTS.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}

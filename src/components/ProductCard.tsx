@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import styles from './ProductCard.module.css';
 
 export interface Product {
   id: string;
@@ -12,25 +11,26 @@ export interface Product {
 
 export default function ProductCard({ title, price, image, status, delay = 0 }: Product) {
   return (
-    <div className={styles.card} style={{ animationDelay: `${delay}s` }}>
-      <div className={styles.imageContainer}>
-        {status === 'sold_out' && <span className={`${styles.badge} ${styles.soldOut}`}>Sold Out</span>}
-        {status === 'sale' && <span className={`${styles.badge} ${styles.sale}`}>Sale</span>}
+    <div className="product-card" style={{ animationDelay: `${delay}s` }}>
+      <div className="product-img-wrapper">
+        {status === 'sold_out' && <span className="badge sold-out">Sold Out</span>}
+        {status === 'sale' && <span className="badge sale">Sale</span>}
         
         <Image 
           src={image} 
           alt={title} 
           fill
-          className={styles.image}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          className="product-img"
         />
 
-        <button className={styles.addToBag}>
+        <button className="product-add-btn">
           {status === 'sold_out' ? 'Notify Me' : 'Add to Bag'}
         </button>
       </div>
-      <div className={styles.details}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.price}>{price}</p>
+      <div className="product-meta">
+        <h3 className="product-title">{title}</h3>
+        <p className="product-price">{price}</p>
       </div>
     </div>
   );
